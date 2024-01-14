@@ -1,22 +1,5 @@
 # DisasterResponsePipeline
 
-## Table of Contents
-
-- [Project Summary](#project-summary)
-- [Web App Screenshots](#web_app_screenshots)
-- [Project Implementation](#project_implementation)
-  - [Project Structure](#project_structure)
-  - [Data Processing](#data_preprocessing)
-  - [Model Training](#model_training)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installing Dependencies](#installing-dependencies)
-  - [Running Python Scripts](#running-python-scripts)
-  - [Running the Web App](#running-the-web-app)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Project Summary
 
 The project aims to develop a robust API model designed for classifying disaster messages. Through the accompanying web application, emergency responders can input new messages and promptly receive classification results across various categories. This functionality provides insights into the nature of assistance required, such as "water," "food," "medical help," and more.
