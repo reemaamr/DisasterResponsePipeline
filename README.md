@@ -1,22 +1,5 @@
 # DisasterResponsePipeline
 
-## Table of Contents
-
-- [Project Summary](#project-summary)
-- [Web App Screenshots](#web_app_screenshots)
-- [Project Implementation](#project_implementation)
-  - [Project Structure](#project_structure)
-  - [Data Processing](#data_preprocessing)
-  - [Model Training](#model_training)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installing Dependencies](#installing-dependencies)
-  - [Running Python Scripts](#running-python-scripts)
-  - [Running the Web App](#running-the-web-app)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Project Summary
 
 The project aims to develop a robust API model designed for classifying disaster messages. Through the accompanying web application, emergency responders can input new messages and promptly receive classification results across various categories. This functionality provides insights into the nature of assistance required, such as "water," "food," "medical help," and more.
@@ -86,3 +69,39 @@ Before running the project, ensure you have the required dependencies installed 
 
 ```bash
 pip install -r requirements.txt
+```
+
+### Application Setup
+To set up and run the project, follow these steps in your terminal from the top-level project directory (where this README is located):
+
+1. Process the data by executing the following command:
+
+    ```bash
+    python data/process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
+    ```
+
+   This command will preprocess and merge the specified CSV files into a SQLite database named `DisasterResponse.db`.
+
+2. Train the machine learning model by running the following command:
+
+    ```bash
+    python models/train_classifier.py data/DisasterResponse.db classifier.pkl
+    ```
+
+   This command utilizes the data from the processed database to train a model and saves it as `classifier.pkl`.
+
+3. Launch the web application with the command:
+
+    ```bash
+    python run.py
+    ```
+
+   This will start the Flask web server.
+
+4. Open your web browser and navigate to [http://0.0.0.0:3001/](http://0.0.0.0:3001/) (or try [http://localhost:3001/](http://localhost:3001/) if you encounter any issues).
+
+In the web app, you can input any English text message, and it will be categorized among 35 classes.
+
+## Project Origin
+
+This application is a culmination of work completed during the Udacity Data Scientist Nanodegree. Code templates and initial datasets were generously provided by Udacity. The primary dataset, sourced from Figure Eight, was originally compiled by Udacity for use in this project.
