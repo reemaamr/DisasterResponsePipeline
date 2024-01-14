@@ -38,7 +38,7 @@ app
 
 |- run.py # Flask file that runs the app
 
-
+<br>
 data
 
 |- disaster_categories.csv # data to process
@@ -49,15 +49,14 @@ data
 
 |- InsertDatabaseName.db # database to save clean data to
 
-
+<br>
 models
 
 |- train_classifier.py
 
 |- classifier.pkl # saved model
 
-
-
+<br>
 README.md
 
 
