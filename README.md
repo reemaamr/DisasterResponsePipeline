@@ -60,7 +60,13 @@ models
 README.md
 
 
+### Web Application
+- **template:** Contains HTML templates for the web app.
+  - **master.html:** The main page of the web app.
+  - **go.html:** The classification result page of the web app.
 
+- **run.py:** Flask file that runs the web app.
+- 
 ### Data Processing
 
 - **process_data.py:** This script extracts and processes data from two CSV files, `messages.csv` (containing message data) and `categories.csv` (containing classes of messages). It merges and cleans the data, creating an SQLite database with consolidated information.
