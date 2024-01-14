@@ -20,6 +20,18 @@ from sklearn.ensemble import RandomForestClassifier
 
 
 def load_data(database_filepath):
+    '''
+    load_data
+     this function load the dataset that has been processed using process_data.py
+     
+    Input:
+    database_filepath  the file path of the processed data
+    
+    Return:
+    X              a dataframe contains messages
+    Y              a datafframe contains the labels
+    category_list  a list of the 36 categories (labels)
+    '''
     #import processed data
     engine = create_engine('sqlite:///'+database_filepath)
     df = pd.read_sql_query("SELECT * FROM DisasterResponse", engine)
@@ -27,12 +39,25 @@ def load_data(database_filepath):
     #split columns
     X = df.message.values
     Y = df.drop(['id','message','original','genre'],axis=1).values
+    category_list = list(df.columns[4:])
     
     #return text, labels, category list
-    return X, Y, list(df.columns[4:])
+    return X, Y, category_list
 
 
 def tokenize(text):
+    '''
+    tokenize
+     this function process the text by removing URLs, tokenize text into words, lemmatizes 
+     each word, converts it to lowercase, and strips leading/trailing whitespaces.
+     
+    Input:
+    text  the load text using the CountVectorizer from the built pipeline model
+    
+    Return:
+    clean_tokens  list of cleaned and lemmatized tokens
+    '''
+    
     #find URLs in each text
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     detected_urls = re.findall(url_regex, text)
@@ -54,6 +79,19 @@ def tokenize(text):
 
 
 def build_model():
+    '''
+    build_model
+     create a Pipeline with the folowing component:
+     - CountVectorizer
+     - TfidfTransformer
+     - RandomForestClassifier with MultiOutputClassifier
+     
+     then use GridSearchCV to find the best parameters
+     
+    Return:
+    cv   the built model
+    '''
+    
     # bulid model pipeline
     pipeline = pipeline=Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
@@ -74,6 +112,18 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    '''
+    evaluate_model
+     after training the model, this function evaluate the model's performance using test set and print 
+     the classification report of the model for each category
+     
+    Input:
+    model   model that has been trained
+    X_test          the text of the test set
+    Y_test          test labels
+    category_names  the list of the categories
+    '''
+    
     #model prediction
     y_pred = model.predict(X_test)
     
@@ -83,6 +133,11 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    '''
+    save_model
+     save model as pkl file for deployment
+    '''
+    
     #save model for deployment
     pickle.dump(model, open(model_filepath, 'wb'))
 
