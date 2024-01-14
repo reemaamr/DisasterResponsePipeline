@@ -29,6 +29,7 @@ Additionally, the web app includes features to visualize relevant data, enhancin
 
 ### Project Structure
 app
+
 | - template
 | - master.html # main page of web app
 | - go.html # classification result page of web app
