@@ -24,6 +24,9 @@ The project aims to develop a robust API model designed for classifying disaster
 Additionally, the web app includes features to visualize relevant data, enhancing the user's ability to interpret and respond effectively to emergency situations.
 
 ## Web App Screenshots
+![webappscreenshot1](https://github.com/reemaamr/DisasterResponsePipeline/assets/103683491/e744d3c3-d288-46f8-bf14-df9217662542)
+![webappscreenshot3](https://github.com/reemaamr/DisasterResponsePipeline/assets/103683491/32b69fd6-d345-4454-8dd9-3b77afb2bdc3)
+![webaapscreenshot2](https://github.com/reemaamr/DisasterResponsePipeline/assets/103683491/2b3ea8ed-3620-4c5a-b417-e8852f5fb8d6)
 
 ## Project Implementation
 
@@ -66,7 +69,7 @@ README.md
   - **go.html:** The classification result page of the web app.
 
 - **run.py:** Flask file that runs the web app.
-- 
+ 
 ### Data Processing
 
 - **process_data.py:** This script extracts and processes data from two CSV files, `messages.csv` (containing message data) and `categories.csv` (containing classes of messages). It merges and cleans the data, creating an SQLite database with consolidated information.
