@@ -86,3 +86,35 @@ Before running the project, ensure you have the required dependencies installed 
 
 ```bash
 pip install -r requirements.txt
+```
+
+### Application Setup
+To set up and run the project, follow these steps in your terminal from the top-level project directory (where this README is located):
+
+1. Process the data by executing the following command:
+
+    ```bash
+    python data/process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
+    ```
+
+   This command will preprocess and merge the specified CSV files into a SQLite database named `DisasterResponse.db`.
+
+2. Train the machine learning model by running the following command:
+
+    ```bash
+    python models/train_classifier.py data/DisasterResponse.db classifier.pkl
+    ```
+
+   This command utilizes the data from the processed database to train a model and saves it as `classifier.pkl`.
+
+3. Launch the web application with the command:
+
+    ```bash
+    python run.py
+    ```
+
+   This will start the Flask web server.
+
+4. Open your web browser and navigate to [http://0.0.0.0:3001/](http://0.0.0.0:3001/) (or try [http://localhost:3001/](http://localhost:3001/) if you encounter any issues).
+
+In the web app, you can input any English text message, and it will be categorized among 35 classes.
