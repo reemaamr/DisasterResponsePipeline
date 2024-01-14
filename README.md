@@ -101,3 +101,7 @@ To set up and run the project, follow these steps in your terminal from the top-
 4. Open your web browser and navigate to [http://0.0.0.0:3001/](http://0.0.0.0:3001/) (or try [http://localhost:3001/](http://localhost:3001/) if you encounter any issues).
 
 In the web app, you can input any English text message, and it will be categorized among 35 classes.
+
+## Project Origin
+
+This application is a culmination of work completed during the Udacity Data Scientist Nanodegree. Code templates and initial datasets were generously provided by Udacity. The primary dataset, sourced from Figure Eight, was originally compiled by Udacity for use in this project.
